@@ -1,16 +1,22 @@
-html,
+
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: 'Almoni', Arial, serif;
+
+    padding:0;
+    margin:0;
+    direction: rtl;
+
+   background-color: white;
+   background-image: url('https://cdn.menoramivt.co.il/public/images/login-image.svg'), url('https://cdn.menoramivt.co.il/public/images/girl-with-bike.svg');
+   background-position:100% 0%, 0% 100%;
+   background-repeat: no-repeat, no-repeat;
+   min-height: 100vh;
+   display: flex;
+
+ 
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
 
-* {
-  box-sizing: border-box;
-}
+
+
