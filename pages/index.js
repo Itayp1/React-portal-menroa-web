@@ -23,7 +23,8 @@ class IndexPage extends Component {
             <a>Auth</a>
           </Link>
         </p>
-        <button onClick={() => Router.push("/auth")}>Go to Auth</button>
+
+        <button className="btn btn-primary" onClick={() => Router.push("/auth")}>Go to Auth</button>
       </div>
     );
   }
