@@ -41,12 +41,13 @@ const ApplicationList = (props) => {
 
   return (
     <>
-      <div className="application-border fixed-bottom">
-        <ul className="list-group list-group-horizontal ">
+      <div className="application-border fixed-bottom ">
+        <ul className="list-group list-group-horizontal-sm wide">
           <li className="list-group-item">
             <h4>
-              {" "}
-              פעולות <br /> נפוצות
+              פעולות
+              <br />
+              נפוצות
             </h4>
           </li>
           {applicationList.length == 0 ? null : applicationList.map((props, key) => aplication(props, key))}
@@ -54,7 +55,7 @@ const ApplicationList = (props) => {
       </div>
 
       <style jsx>{`
-        .list-group-horizontal {
+        .list-group-horizontal-sm {
           border-radius: 5px;
           justify-content: center;
           background-color: white;
@@ -70,6 +71,21 @@ const ApplicationList = (props) => {
           border-right: none;
           border-top: none;
           border-bottom: none;
+          margin: auto;
+        }
+
+        @media only screen and (max-height: 700px) {
+          .fixed-bottom {
+            position: static;
+            margin-top: 22px;
+          }
+        }
+
+        @media only screen and (max-width: 575px) {
+          .list-group-item {
+            border-left: none;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+          }
         }
       `}</style>
     </>
