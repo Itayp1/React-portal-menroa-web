@@ -1,44 +1,7 @@
 import React from "react";
 const tabOption = { true: "_blank", false: "_self" };
 
-const ApplicationList = (props) => {
-  const {
-    applicationList = [
-      { icon: "https://cdn.menoramivt.co.il/public/images/l79zlyk6oud7zf-documents.svg", text: "תביעות", link: "https://www.menoramivt.co.il/list/claims-lobby", openInNewTab: true },
-      { icon: "https://cdn.menoramivt.co.il/public/images/l79zlyk6oud7zf-documents.svg", text: "תביעות", link: "https://www.menoramivt.co.il/list/claims-lobby", openInNewTab: false },
-    ],
-  } = props;
-
-  const aplication = (props, key) => {
-    const { icon, text, link, openInNewTab } = props;
-    return (
-      <>
-        <li
-          onClick={() => {
-            window.open(link, tabOption[openInNewTab]);
-          }}
-          className="list-group-item"
-          key={key.toString()}
-        >
-          <img src={icon} />
-          <p>{text}</p>
-        </li>
-        <style jsx>{`
-          .list-group-item {
-            border: 0px;
-          }
-          .list-group-item:hover {
-            cursor: pointer;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          }
-          .list-group-item:active {
-            background-color: #dedcda;
-          }
-        `}</style>
-      </>
-    );
-  };
-
+const ApplicationList = ({ applicationListDetails }) => {
   return (
     <>
       <div className="application-border fixed-bottom ">
@@ -50,7 +13,7 @@ const ApplicationList = (props) => {
               נפוצות
             </h4>
           </li>
-          {applicationList.length == 0 ? null : applicationList.map((props, key) => aplication(props, key))}
+          {applicationListDetails.length == 0 ? null : aplication(applicationListDetails)}
         </ul>
       </div>
 
@@ -74,7 +37,7 @@ const ApplicationList = (props) => {
           margin: auto;
         }
 
-        @media only screen and (max-height: 700px) {
+        @media only screen and (max-height: 700px) and (max-width: 575px), (max-height: 400px) {
           .fixed-bottom {
             position: static;
             margin-top: 22px;
@@ -90,6 +53,36 @@ const ApplicationList = (props) => {
       `}</style>
     </>
   );
+};
+
+const aplication = (applicationList) => {
+  const applicationListArr = applicationList.map(({ icon, text, link, openInNewTab }, key) => (
+    <div key={key.toString()}>
+      <li
+        onClick={() => {
+          window.open(link, tabOption[openInNewTab]);
+        }}
+        className="list-group-item"
+      >
+        <img src={icon} />
+        <p>{text}</p>
+      </li>
+      <style jsx>{`
+        .list-group-item {
+          border: 0px;
+        }
+        .list-group-item:hover {
+          cursor: pointer;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .list-group-item:active {
+          background-color: #dedcda;
+        }
+      `}</style>
+    </div>
+  ));
+
+  return applicationListArr;
 };
 
 export default ApplicationList;

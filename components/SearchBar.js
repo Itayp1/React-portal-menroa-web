@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const SearchBar = (props) => {
-  const { placeholder = "הקלד מלל לחיפוש", searchEngine = "https://google.com" } = props;
+const SearchBar = ({ searchBarDetails }) => {
+  const { placeHolder = "הקלד לחיפוש", engineSearch = "https://google.com" } = searchBarDetails;
   const [input, setInput] = useState("");
 
   const handleInputChange = (e) => {
@@ -12,7 +12,7 @@ const SearchBar = (props) => {
   const onSearchSubmit = (event) => {
     event.preventDefault();
     if (input.length > 0) {
-      const searchLink = `${searchEngine}/search?q=${input}`;
+      const searchLink = `${engineSearch}/search?q=${input}`;
       window.open(searchLink, "_blank");
     }
   };
@@ -22,7 +22,7 @@ const SearchBar = (props) => {
       <form onSubmit={onSearchSubmit}>
         <div className="searchBar">
           <i onClick={onSearchSubmit} type="submit" className="fa fa-chevron-left round-icon"></i>
-          <input type="text" className="form-control text-input" value={input} onChange={handleInputChange} id="searchbar" placeholder={placeholder} />
+          <input type="text" className="form-control text-input" value={input} onChange={handleInputChange} id="searchbar" placeholder={placeHolder} />
         </div>
       </form>
 

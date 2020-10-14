@@ -1,13 +1,13 @@
 import React from "react";
 
-const Title = (props) => (
+const Title = ({ pageTitleDetails: { text, fontColor, fontSize } }) => (
   <>
-    <h1>{props.text || "מנורה"}</h1>
+    <h1>{text || "מבטחים"}</h1>
 
     <style jsx>{`
       h1 {
-        color: ${props.fontColor || "#37374e"};
-        font-size: ${props.fontSize || "70px"};
+        color: ${fontColor || "blue"};
+        font-size: ${fontSize || "17px"};
       }
     `}</style>
   </>

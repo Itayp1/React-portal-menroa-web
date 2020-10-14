@@ -1,38 +1,33 @@
 import React, { Component } from "react";
-import Link from "next/link";
-import Router from "next/router";
 import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
 import SearchBar from "../components/SearchBar";
 import ApplicationList from "../components/ApplicationList";
-
+import axios from "axios";
 class IndexPage extends Component {
-  static getInitialProps(context) {
-    const promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({ appName: "Super App" });
-      }, 1000);
-    });
-    return promise;
-  }
-
   render() {
+    const { searchBar, pageSubTitle, pageTitle, applicationList } = this.props.data;
+
     return (
       <div className="container-fluid ">
-        <Title />
-        <SubTitle />
-        <SearchBar />
-        <ApplicationList />
-        {/* <p>
-          Go to{" "}
-          <Link href="/auth">
-            <a>Auth</a>
-          </Link>
-        </p> */}
-
-        {/* <button className="btn btn-primary" onClick={() => Router.push("/auth")}>Go to Auth</button> */}
+        <Title pageTitleDetails={pageTitle} />
+        <SubTitle pageSubTitleDetails={pageSubTitle} />
+        <SearchBar searchBarDetails={searchBar} />
+        <ApplicationList applicationListDetails={applicationList} />
       </div>
     );
+  }
+}
+
+export async function getServerSideProps() {
+  try {
+    const { data } = await axios.get("http://localhost:3001/api/PageDetails/entryPage");
+
+    return { props: { data } };
+  } catch (error) {
+    console.log(error);
+
+    return {};
   }
 }
 
