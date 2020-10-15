@@ -1,29 +1,29 @@
+body {
+  font-family: "Almoni", Arial, serif;
+  height: 100%;
+  font-weight: 500;
+  font-size: 18px;
+  color: rgba(55, 55, 78, 0.94);
+  letter-spacing: 0.2px;
+  padding: 0;
+  margin: 0;
+  direction: rtl;
+  font-kerning: none;
+  background-color: white;
+  background-image: url("https://cdn.menoramivt.co.il/public/images/login-image.svg"), url("https://cdn.menoramivt.co.il/public/images/girl-with-bike.svg");
+  background-position: 100% 0%, 0% 100%;
+  background-repeat: no-repeat, no-repeat;
+  text-align: center;
+}
 
+#__next {
+  min-height: 100vh;
 
-  body {
-    font-family: 'Almoni', Arial, serif;
-    height: 100%;
-    font-weight: 500;
-    font-size: 18px;
-    color: rgba(55, 55, 78, 0.94);
-    letter-spacing: 0.2px;
-    padding:0;
-    margin:0;
-    direction: rtl;
-    font-kerning: none;
-    background-color: white;
-    background-image: url('https://cdn.menoramivt.co.il/public/images/login-image.svg'), url('https://cdn.menoramivt.co.il/public/images/girl-with-bike.svg');
-   background-position:100% 0%, 0% 100%;
-   background-repeat: no-repeat, no-repeat;
-   text-align: center;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
-
-
-  #__next {
-    min-height: 100vh;
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
+.space {
+  margin: 10px;
+}

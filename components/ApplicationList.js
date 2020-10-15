@@ -1,10 +1,10 @@
 import React from "react";
 const tabOption = { true: "_blank", false: "_self" };
 
-const ApplicationList = ({ applicationListDetails }) => {
+const ApplicationList = ({ applicationListDetails, managementView }) => {
   return (
     <>
-      <div className="application-border fixed-bottom ">
+      <div className={`application-border ${managementView ? "managmentView" : "fixed-bottom"} `}>
         <ul className="list-group list-group-horizontal-sm wide">
           <li className="list-group-item">
             <h4>
@@ -37,6 +37,10 @@ const ApplicationList = ({ applicationListDetails }) => {
           margin: auto;
         }
 
+        .managmentView {
+          position: static;
+          margin-top: 50px;
+        }
         @media only screen and (max-height: 700px) and (max-width: 575px), (max-height: 400px) {
           .fixed-bottom {
             position: static;

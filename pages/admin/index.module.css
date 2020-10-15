@@ -1,0 +1,13 @@
+.title {
+  margin-top: 5vh;
+  font-size: 60px;
+}
+
+.flexcontainer {
+  display: flex;
+}
+
+.flexitem {
+  flex-grow: 100;
+  margin: 10px;
+}
