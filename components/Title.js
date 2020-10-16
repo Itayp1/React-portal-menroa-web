@@ -1,12 +1,15 @@
 import React from "react";
 
-const Title = ({ pageTitleDetails: { text, fontColor, fontSize } }) => (
+const Title = ({ pageTitleDetails: { text, fontColor, fontSize }, isSubTitle }) => (
   <>
-    <h1>{text || "מבטחים"}</h1>
-
+    {isSubTitle ? <h2>{text || "מבטחים"}</h2> : <h1>{text || "מבטחים"}</h1>}
     <style jsx>{`
       h1 {
-        color: ${fontColor || "blue"};
+        color: ${fontColor || "black"};
+        font-size: ${fontSize || "17px"};
+      }
+      h2 {
+        color: ${fontColor || "black"};
         font-size: ${fontSize || "17px"};
       }
     `}</style>

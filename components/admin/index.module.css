@@ -4,3 +4,9 @@
   border-radius: 10px;
   opacity: 0.9;
 }
+
+.buttonposition {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}

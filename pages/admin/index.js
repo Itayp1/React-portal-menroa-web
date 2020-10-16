@@ -1,31 +1,30 @@
 import styles from "./index.module.css";
 
 import Title from "../../components/Title";
-import SubTitle from "../../components/SubTitle";
+
 import SearchBar from "../../components/SearchBar";
 import ApplicationList from "../../components/ApplicationList";
-import InputField from "../../components/admin/InputField";
-import FormInput from "../../components/admin/FormInput";
-import SearchEngineInput from "../../components/admin/SearchEngineInput";
-import Applications from "../../components/admin/Applications";
+import EditTitle from "../../components/admin/EditTitle";
+import EditSearchEngine from "../../components/admin/EditSearchEngine";
+import EditApplicationList from "../../components/admin/EditApplicationList";
 
 import axios from "axios";
 
 const adminPage = (props) => {
   const { searchBar, pageSubTitle, pageTitle, applicationList } = props;
   return (
-    <div className="container ">
+    <div className="container-lg">
       <div className="row">
         <div className={styles.flexitem}>
-          <FormInput details={pageTitle} />
-          <FormInput details={pageSubTitle} />
-          <SearchEngineInput details={searchBar} />
-          <Applications aplicationList={applicationList} />
+          <EditTitle details={pageTitle} />
+          <EditTitle details={pageSubTitle} />
+          <EditSearchEngine details={searchBar} />
+          <EditApplicationList aplicationList={applicationList} />
         </div>
 
         <div className={styles.flexitem}>
           <Title pageTitleDetails={pageTitle} />
-          <SubTitle pageSubTitleDetails={pageSubTitle} />
+          <Title pageTitleDetails={pageSubTitle} isSubTitle={true} />
           <SearchBar searchBarDetails={searchBar} />
           <ApplicationList applicationListDetails={applicationList} managementView={true} />
         </div>

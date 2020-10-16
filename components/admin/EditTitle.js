@@ -1,7 +1,7 @@
 import styles from "./index.module.css";
-import InputField from "./InputField";
+import InputField from "./FormComponent/InputField";
 const FormInput = ({ text, fontSize, fontColor }) => (
-  <div className={`space ${styles.formbackground}`}>
+  <div className={`space ${styles.formbackground} Regular shadow`}>
     <h1>כותרת משנית</h1>
     <div className="row">
       <InputField text="כותרת" currentValue={text} />

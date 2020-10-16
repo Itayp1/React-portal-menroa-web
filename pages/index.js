@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Title from "../components/Title";
-import SubTitle from "../components/SubTitle";
+
 import SearchBar from "../components/SearchBar";
 import ApplicationList from "../components/ApplicationList";
 import axios from "axios";
@@ -11,7 +11,7 @@ class IndexPage extends Component {
     return (
       <div className="container-fluid ">
         <Title pageTitleDetails={pageTitle} />
-        <SubTitle pageSubTitleDetails={pageSubTitle} />
+        <Title pageTitleDetails={pageSubTitle} isSubTitle={true} />
         <SearchBar searchBarDetails={searchBar} />
         <ApplicationList applicationListDetails={applicationList} />
       </div>
