@@ -10,6 +10,6 @@ const Applications = ({ aplicationList }) => (
 );
 
 const generateInputForm = (aplicationList) => {
-  return aplicationList.map(({ openInNewTab, link, icon }, key) => <Application openInNewTab={openInNewTab} link={link} icon={icon} mapkey={key} />);
+  return aplicationList.map(({ openInNewTab, link, icon }, key) => <Application openInNewTab={openInNewTab} link={link} icon={icon} key={key} />);
 };
 export default Applications;

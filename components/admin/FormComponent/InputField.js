@@ -1,7 +1,7 @@
 const InputField = ({ text, currentValue = "ss" }) => (
-  <div class="col-md ">
-    <label for="zip">{text}</label>
-    <input type="text" class="form-control" value={currentValue} id={text.toString()} />
+  <div className="col-md ">
+    <label htmlFor="zip">{text}</label>
+    <input type="text" className="form-control" value={currentValue} onChange={() => {}} id={text.toString()} />
   </div>
 );
 

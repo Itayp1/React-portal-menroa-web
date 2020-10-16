@@ -1,9 +1,9 @@
 const values = { true: "דף נוכחי", false: "דף חדש" };
 const SelectInput = ({ text, currentValue = "ss" }) => (
-  <div class="col-md">
-    <label for="inputState">{text}</label>
-    <select id="inputState" class="form-control">
-      <option selected>{values[currentValue]}</option>
+  <div className="col-md">
+    <label htmlFor="inputState">{text}</label>
+    <select id="inputState" className="form-control">
+      <option value>{values[currentValue]}</option>
       <option>{currentValue ? values.false : values.true}</option>
     </select>
   </div>
