@@ -15,14 +15,20 @@ export const editSearchBar = (searchBarDetails) => (dispatch) => {
   dispatch({ type: EDITED_SEARCH_BAR, payload: searchBarDetails });
 };
 
-export const addApplication = (application) => (dispatch) => {
+export const addApplication = () => (dispatch) => {
+  const application = {
+    icon: "https://cdn.menoramivt.co.il/public/images/l79zlyk6oud7zf-documents.svg",
+    text: "יש להכניס שם ",
+    link: "https://www.menoramivt.co.il/list/claims-lobby1",
+    openInNewTab: false,
+  };
   dispatch({ type: ADDED_APPLICATION, payload: application });
 };
 
-export const removeApplication = (link) => (dispatch) => {
-  dispatch({ type: REMOVEED_APPLICATION, payload: link });
+export const removeApplication = (application) => (dispatch) => {
+  dispatch({ type: REMOVEED_APPLICATION, payload: application });
 };
 
-export const editApplication = (application) => (dispatch) => {
-  dispatch({ type: EDITED_APPLICATION, payload: text });
+export const editApplication = (index) => (dispatch) => {
+  dispatch({ type: EDITED_APPLICATION, payload: index });
 };

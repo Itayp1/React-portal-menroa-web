@@ -5,8 +5,13 @@
   opacity: 0.9;
 }
 
-.buttonposition {
+.removeButton {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
+  margin-right: 20px;
+}
+
+.addButton {
+  margin-top: 20px;
 }

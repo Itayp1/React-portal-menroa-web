@@ -21,19 +21,18 @@ const adminPage = (props) => {
 
   return (
     <div className="container-lg">
-      <div className="row">
+      <div className={styles.flexitem}>
+        <Title pageTitleDetails={pageTitle} />
+        <Title pageTitleDetails={pageSubTitle} isSubTitle={true} />
+        <SearchBar searchBarDetails={searchBar} />
+        <ApplicationList applicationListDetails={applicationList} managementView={true} />
+      </div>
+      <div className="row ">
         <div className={styles.flexitem}>
           <EditTitle details={pageTitle} field="כותרת ראשית" />
           <EditTitle details={pageSubTitle} field="כותרת משנית" isSubTitle={true} />
           <EditSearchEngine details={searchBar} />
           <EditApplicationList applicationList={applicationList} />
-        </div>
-
-        <div className={styles.flexitem}>
-          <Title pageTitleDetails={pageTitle} />
-          <Title pageTitleDetails={pageSubTitle} isSubTitle={true} />
-          <SearchBar searchBarDetails={searchBar} />
-          <ApplicationList applicationListDetails={applicationList} managementView={true} />
         </div>
       </div>
     </div>

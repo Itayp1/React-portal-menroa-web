@@ -2,28 +2,42 @@ import InputField from "./FormComponent/InputField";
 import Select from "./FormComponent/Select";
 import styles from "./index.module.css";
 import { connect, useDispatch } from "react-redux";
-import { removeApplication } from "../../redux/actions/admin";
+import { removeApplication, editApplication } from "../../redux/actions/admin";
+import React, { useState, useEffect } from "react";
 
-const Application = ({ link, icon, openInNewTab }) => {
+const Application = ({ link, icon, text, openInNewTab, index }) => {
+  // console.log(index);
+
   const dispatch = useDispatch();
+  const [linkState, setLink] = useState(link);
+  const [iconState, setIcon] = useState(icon);
+  const [textState, setText] = useState(text);
+  const [openInNewTabtate, setOpenInNewTab] = useState(openInNewTab);
+  useEffect(() => {
+    console.log("edit" + text);
+    dispatch(editApplication({ link, icon, text: textState, openInNewTab, index }));
+  }, [linkState, iconState, textState, openInNewTabtate]);
+
   return (
     <div className="row">
-      <InputField text="כתובת האתר" currentValue={link} />
-      <InputField text="איקון" currentValue={icon} />
-      <Select text="פתיחת הקישור" currentValue={openInNewTab} />
+      <InputField text="כתובת האתר" currentValue={linkState} onchangeValue={onchange(setLink)} />
+      <InputField text="איקון" currentValue={iconState} onchangeValue={onchange(setIcon)} />
+      <InputField text="שם" currentValue={textState} onchangeValue={onchange(setText)} />
 
-      <div className={`col-md-2 ${styles.buttonposition}`}>
-        <button type="button" onClick={() => dispatch(removeApplication({ link }))} className="btn btn-danger">
+      <Select text="פתיחת הקישור" currentValue={openInNewTabtate} onchangeValue={onchange(setOpenInNewTab)} />
+
+      <div className={`col-1.5 ${styles.removeButton}`}>
+        <button type="button" onClick={() => dispatch(removeApplication({ link, icon, text, openInNewTab }))} className="btn btn-danger">
           מחק
         </button>
       </div>
     </div>
   );
 };
+const onchange = (setState) => (value) => setState(value);
 
-export default Application;
-// function mapStateToProps({ searchBar }) {
-//     return searchBar;
-//   }
+function mapStateToProps(props) {
+  return props;
+}
 
-//   export default connect(mapStateToProps)(SearchEngineInput);
+export default connect(mapStateToProps)(Application);
