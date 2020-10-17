@@ -7,9 +7,9 @@ const adminReducer = (state, action) => {
     case ADDED_APPLICATION:
       return { ...state, applicationList: [...applicationList, action.payload] };
     case EDITED_APPLICATION:
-      return { ...state, applicationList: state.map((application) => (application.text == action.payload.text ? action.payload : application)) };
+      return { ...state, applicationList: state.map((application) => (application.link == action.payload.link ? action.payload : application)) };
     case REMOVEED_APPLICATION:
-      return { ...state, applicationList: state.filter(({ text }) => text !== action.payload.text) };
+      return { ...state, applicationList: state.applicationList.filter(({ link }) => link != action.payload.link) };
     case EDITED_TITLE:
       return { ...state, pageTitle: action.payload };
     case EDITED_SUBTITLE:

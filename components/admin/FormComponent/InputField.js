@@ -1,7 +1,7 @@
-const InputField = ({ text, currentValue = "ss" }) => (
+const InputField = ({ text, currentValue, onchangeValue }) => (
   <div className="col-md ">
-    <label htmlFor="zip">{text}</label>
-    <input type="text" className="form-control" value={currentValue} onChange={() => {}} id={text.toString()} />
+    <label htmlFor={text.toString()}>{text}</label>
+    <input type="text" className="form-control" value={currentValue} onChange={(event) => onchangeValue(event.target.value)} id={text.toString()} />
   </div>
 );
 

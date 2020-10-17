@@ -5,21 +5,28 @@ import ApplicationList from "../../components/ApplicationList";
 import EditTitle from "../../components/admin/EditTitle";
 import EditSearchEngine from "../../components/admin/EditSearchEngine";
 import EditApplicationList from "../../components/admin/EditApplicationList";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
 
 import { setFetchDetails } from "../../redux/actions/admin";
 import fetchDetailsApi from "../../api/fetchDetailsApi";
 
 const adminPage = (props) => {
-  const { searchBar, pageSubTitle, pageTitle, applicationList, dispatch } = props;
+  const dispatch = useDispatch();
+  let { searchBar, pageSubTitle, pageTitle, applicationList } = props;
+
+  // useEffect(() => {
+  //   dispatch(setFetchDetails(props));
+  // }, []);
+
   return (
     <div className="container-lg">
       <div className="row">
         <div className={styles.flexitem}>
-          <EditTitle details={pageTitle} />
-          <EditTitle details={pageSubTitle} />
+          <EditTitle details={pageTitle} field="כותרת ראשית" />
+          <EditTitle details={pageSubTitle} field="כותרת משנית" isSubTitle={true} />
           <EditSearchEngine details={searchBar} />
-          <EditApplicationList aplicationList={applicationList} />
+          <EditApplicationList applicationList={applicationList} />
         </div>
 
         <div className={styles.flexitem}>
@@ -33,10 +40,10 @@ const adminPage = (props) => {
   );
 };
 
-adminPage.getInitialProps = async (ctx) => {
+adminPage.getInitialProps = async ({ reduxStore }) => {
   try {
     const data = await fetchDetailsApi();
-    setFetchDetails(data);
+    reduxStore.dispatch(setFetchDetails(data));
 
     return { data };
   } catch (error) {
@@ -48,4 +55,4 @@ adminPage.getInitialProps = async (ctx) => {
 
 const mapStateToProps = (state) => state;
 
-export default connect(mapStateToProps, { setFetchDetails })(adminPage);
+export default connect(mapStateToProps)(adminPage);

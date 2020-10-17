@@ -1,3 +1,4 @@
+import axios from "axios";
 const fetchDetailsApi = async () => {
   try {
     const { data } = await axios.get("http://localhost:3001/api/PageDetails/entryPage");

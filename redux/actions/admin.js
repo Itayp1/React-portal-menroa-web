@@ -19,8 +19,8 @@ export const addApplication = (application) => (dispatch) => {
   dispatch({ type: ADDED_APPLICATION, payload: application });
 };
 
-export const removeApplication = (text) => (dispatch) => {
-  dispatch({ type: REMOVEED_APPLICATION, payload: text });
+export const removeApplication = (link) => (dispatch) => {
+  dispatch({ type: REMOVEED_APPLICATION, payload: link });
 };
 
 export const editApplication = (application) => (dispatch) => {

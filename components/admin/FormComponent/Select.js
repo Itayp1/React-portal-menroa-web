@@ -1,5 +1,6 @@
 const values = { true: "דף נוכחי", false: "דף חדש" };
-const SelectInput = ({ text, currentValue = "ss" }) => (
+
+const SelectInput = ({ text, currentValue }) => (
   <div className="col-md">
     <label htmlFor="inputState">{text}</label>
     <select id="inputState" className="form-control">

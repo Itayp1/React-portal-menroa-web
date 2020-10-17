@@ -4,6 +4,6 @@ import InitialState from "./initialState";
 import Reducers from "./reducers/adminReducer";
 import reduxThunk from "redux-thunk";
 
-export function initializeStore(initialState = InitialState) {
+export function initializeStore(initialState) {
   return createStore(Reducers, initialState, composeWithDevTools(applyMiddleware(reduxThunk)));
 }
