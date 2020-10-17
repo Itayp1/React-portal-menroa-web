@@ -1,17 +1,17 @@
 import styles from "./index.module.css";
-
 import Title from "../../components/Title";
-
 import SearchBar from "../../components/SearchBar";
 import ApplicationList from "../../components/ApplicationList";
 import EditTitle from "../../components/admin/EditTitle";
 import EditSearchEngine from "../../components/admin/EditSearchEngine";
 import EditApplicationList from "../../components/admin/EditApplicationList";
+import { connect } from "react-redux";
 
-import axios from "axios";
+import { setFetchDetails } from "../../redux/actions/admin";
+import fetchDetailsApi from "../../api/fetchDetailsApi";
 
 const adminPage = (props) => {
-  const { searchBar, pageSubTitle, pageTitle, applicationList } = props;
+  const { searchBar, pageSubTitle, pageTitle, applicationList, dispatch } = props;
   return (
     <div className="container-lg">
       <div className="row">
@@ -33,11 +33,12 @@ const adminPage = (props) => {
   );
 };
 
-adminPage.getInitialProps = async (context) => {
+adminPage.getInitialProps = async (ctx) => {
   try {
-    const { data } = await axios.get("http://localhost:3001/api/PageDetails/entryPage");
+    const data = await fetchDetailsApi();
+    setFetchDetails(data);
 
-    return data;
+    return { data };
   } catch (error) {
     console.log(error);
 
@@ -45,4 +46,6 @@ adminPage.getInitialProps = async (context) => {
   }
 };
 
-export default adminPage;
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps, { setFetchDetails })(adminPage);
