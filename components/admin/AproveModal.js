@@ -7,15 +7,16 @@ const AproveModal = ({ showModal, setShowModal }) => {
   }, 4000);
   return (
     <>
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header>
+      <Modal style={{ display: "inline -block" }} show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header bsPrefix="modalcenter">
           <h1>שמירה</h1>
         </Modal.Header>
-        <h3>השמירה בוצע בהצלחה</h3>
-        <Modal.Footer></Modal.Footer>
+        <Modal.Footer bsPrefix="modalcenter">
+          <h3>השמירה בוצע בהצלחה</h3>
+        </Modal.Footer>
       </Modal>
       <style jsx>{`
-        .modal-header {
+        .modalcenter {
           display: inline-block;
         }
       `}</style>
