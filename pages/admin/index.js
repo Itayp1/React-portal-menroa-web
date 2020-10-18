@@ -19,6 +19,7 @@ const adminPage = (props) => {
 
   return (
     <div className="container-lg">
+      <h1 className={styles.title}> ממשק ניהול</h1>
       <div className={styles.flexitem}>
         <Title pageTitleDetails={pageTitle} />
         <Title pageTitleDetails={pageSubTitle} isSubTitle={true} />
