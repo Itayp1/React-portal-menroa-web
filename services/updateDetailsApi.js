@@ -2,7 +2,7 @@ import axios from "axios";
 const updateDetailsApi = async (details, setShowModal) => {
   try {
     details.pageName = "entryPage";
-    const { data } = await axios.post("http://localhost:3001/api/PageDetails", details);
+    const { data } = await axios.post("https://portal-menroa-api.herokuapp.com/api/PageDetails", details);
     setShowModal(true);
 
     return data;
