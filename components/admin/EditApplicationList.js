@@ -7,7 +7,6 @@ import { connect, useDispatch } from "react-redux";
 
 const Applications = ({ applicationList }) => {
   const dispatch = useDispatch();
-
   return (
     <div className={`space ${styles.formbackground} Regular shadow`}>
       <h1>מערכות פעילות</h1>
@@ -20,7 +19,7 @@ const Applications = ({ applicationList }) => {
 };
 
 const generateInputForm = (aplicationList) => {
-  return aplicationList.map(({ openInNewTab, link, icon, text }, index) => <Application openInNewTab={openInNewTab} link={link} icon={icon} key={index} index={index} text={text} />);
+  return aplicationList.map(({ openInNewTab, link, icon, text, idNum }) => <Application openInNewTab={openInNewTab} idNum={idNum} link={link} icon={icon} key={idNum} text={text} />);
 };
 
 function mapStateToProps({ applicationList }) {

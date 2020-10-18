@@ -5,17 +5,16 @@ import { connect, useDispatch } from "react-redux";
 import { removeApplication, editApplication } from "../../redux/actions/admin";
 import React, { useState, useEffect } from "react";
 
-const Application = ({ link, icon, text, openInNewTab, index }) => {
-  // console.log(index);
-
+const Application = ({ link, icon, text, openInNewTab, idNum }) => {
   const dispatch = useDispatch();
+
   const [linkState, setLink] = useState(link);
   const [iconState, setIcon] = useState(icon);
   const [textState, setText] = useState(text);
   const [openInNewTabtate, setOpenInNewTab] = useState(openInNewTab);
+
   useEffect(() => {
-    console.log("edit" + text);
-    dispatch(editApplication({ link, icon, text: textState, openInNewTab, index }));
+    dispatch(editApplication({ link: linkState, icon: iconState, text: textState, openInNewTab: openInNewTabtate, idNum }));
   }, [linkState, iconState, textState, openInNewTabtate]);
 
   return (
@@ -27,7 +26,7 @@ const Application = ({ link, icon, text, openInNewTab, index }) => {
       <Select text="פתיחת הקישור" currentValue={openInNewTabtate} onchangeValue={onchange(setOpenInNewTab)} />
 
       <div className={`col-1.5 ${styles.removeButton}`}>
-        <button type="button" onClick={() => dispatch(removeApplication({ link, icon, text, openInNewTab }))} className="btn btn-danger">
+        <button type="button" onClick={() => dispatch(removeApplication({ link, icon, text, openInNewTab, idNum }))} className="btn btn-danger">
           מחק
         </button>
       </div>

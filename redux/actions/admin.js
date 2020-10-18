@@ -21,6 +21,7 @@ export const addApplication = () => (dispatch) => {
     text: "יש להכניס שם ",
     link: "https://www.menoramivt.co.il/list/claims-lobby1",
     openInNewTab: false,
+    idNum: Math.floor(Math.random() * 1000000).toString(),
   };
   dispatch({ type: ADDED_APPLICATION, payload: application });
 };

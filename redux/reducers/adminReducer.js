@@ -7,11 +7,11 @@ const adminReducer = (state, action) => {
     case ADDED_APPLICATION:
       return { ...state, applicationList: [...state.applicationList, action.payload] };
     case EDITED_APPLICATION:
-      return { ...state, applicationList: state.applicationList.map((application, index) => (index == action.payload.index ? action.payload : application)) };
+      return { ...state, applicationList: state.applicationList.map((application) => (application.idNum == action.payload.idNum ? action.payload : application)) };
     case REMOVEED_APPLICATION:
       return {
         ...state,
-        applicationList: state.applicationList.filter(({ link, text, icon }) => !(link == action.payload.link && text == action.payload.text && icon == action.payload.icon)),
+        applicationList: state.applicationList.filter(({ idNum }) => idNum != action.payload.idNum),
       };
     case EDITED_TITLE:
       return { ...state, pageTitle: action.payload };
