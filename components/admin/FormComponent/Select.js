@@ -1,4 +1,4 @@
-const values = { true: "דף נוכחי", false: "דף חדש" };
+const values = { false: "דף נוכחי", true: "דף חדש" };
 
 const SelectInput = ({ text, currentValue, onchangeValue }) => (
   <div className="col-1.5">

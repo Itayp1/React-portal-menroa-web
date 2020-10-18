@@ -6,18 +6,16 @@ import EditTitle from "../../components/admin/EditTitle";
 import EditSearchEngine from "../../components/admin/EditSearchEngine";
 import EditApplicationList from "../../components/admin/EditApplicationList";
 import { connect, useDispatch } from "react-redux";
-import React, { useState, useEffect } from "react";
-
+import React, { useState } from "react";
+import AproveModal from "../../components/admin/AproveModal";
 import { setFetchDetails } from "../../redux/actions/admin";
 import fetchDetailsApi from "../../api/fetchDetailsApi";
+import updateDetailsApi from "../../api/updateDetailsApi";
 
 const adminPage = (props) => {
   const dispatch = useDispatch();
   let { searchBar, pageSubTitle, pageTitle, applicationList } = props;
-
-  // useEffect(() => {
-  //   dispatch(setFetchDetails(props));
-  // }, []);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="container-lg">
@@ -35,6 +33,11 @@ const adminPage = (props) => {
           <EditApplicationList applicationList={applicationList} />
         </div>
       </div>
+      {showModal ? <AproveModal showModal={showModal} setShowModal={setShowModal} /> : null}
+
+      <button type="button" className="btn btn-secondary  mb-5" onClick={() => updateDetailsApi({ searchBar, pageSubTitle, pageTitle, applicationList }, setShowModal)}>
+        שמירה
+      </button>
     </div>
   );
 };
