@@ -9,8 +9,8 @@ import { connect, useDispatch } from "react-redux";
 import React, { useState } from "react";
 import AproveModal from "../../components/admin/AproveModal";
 import { setFetchDetails } from "../../redux/actions/admin";
-import fetchDetailsApi from "../../api/fetchDetailsApi";
-import updateDetailsApi from "../../api/updateDetailsApi";
+import fetchDetailsApi from "../../services/fetchDetailsApi";
+import updateDetailsApi from "../../services/updateDetailsApi";
 
 const adminPage = (props) => {
   const dispatch = useDispatch();

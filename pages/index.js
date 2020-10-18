@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Title from "../components/Title";
-import fetchDetailsApi from "../api/fetchDetailsApi";
+import fetchDetailsApi from "../services/fetchDetailsApi";
 import SearchBar from "../components/SearchBar";
 import ApplicationList from "../components/ApplicationList";
 
