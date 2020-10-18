@@ -7,7 +7,6 @@ import Head from "next/head";
 
 class MyApp extends App {
   render() {
-    //Information that was returned  from 'getInitialProps' are stored in the props i.e. pageProps
     const { Component, pageProps, reduxStore } = this.props;
 
     return (
@@ -21,7 +20,4 @@ class MyApp extends App {
   }
 }
 
-//makeStore function that returns a new store for every request
-
-//withRedux wrapper that passes the store to the App Component
 export default withReduxStore(MyApp);
